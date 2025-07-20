@@ -206,6 +206,7 @@ npm run dev
 | 🧑‍💼 Admin Navbar | ![Navbar (Admin)](./screenshots/navbar_admin_view.JPG) |
 | 💼 Employee Dashboard | ![Dashboard (Emp)](./screenshots/dashboard_emp_view.png) |
 | 📋 Employee Expense Table | ![Expense Table (Emp)](./screenshots/expense_table_emp_view.JPG) |
+| 🧾 Expense Filter (Admin)    | ![Expense Filter](./screenshots/expense_filter_admin_view.JPG)   |
 | 📊 Admin - All Expenses Table | ![All Expenses](./screenshots/all_expenses_table_admin_view.JPG) |
 | 📤 Admin - CSV Export Button | ![CSV Export](./screenshots/export_csv_admin_view.JPG) |
 | 📈 Admin - Charts (Category + Monthly) | ![Charts](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG) |
