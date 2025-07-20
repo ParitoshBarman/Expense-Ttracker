@@ -174,9 +174,33 @@ npm run dev
 
 ---
 
-## 📊 Screenshots
+## 📸 Screenshots
 
-> Visit the GitHub repo for screenshots or open the [live site](https://expense-tracker-by-paritosh.netlify.app/admin).
+### 🔐 Authentication Pages
+- **Login Page**  
+  ![Screenshot](./screenshots/login_page.png)
+- **Register**  
+  ![Screenshot](./screenshots/register.png)
+
+### 👤 Employee Views
+- **Navbar Emp View**  
+  ![Screenshot](./screenshots/navbar_emp_view.JPG)
+- **Dashboard Emp View**  
+  ![Screenshot](./screenshots/dashboard_emp_view.png)
+- **Expense Table Emp View**  
+  ![Screenshot](./screenshots/expense_table_emp_view.JPG)
+
+### 🛠 Admin Views
+- **Navbar Admin View**  
+  ![Screenshot](./screenshots/navbar_admin_view.JPG)
+- **All Expenses Table Admin View**  
+  ![Screenshot](./screenshots/all_expenses_table_admin_view.JPG)
+- **Expense Catagory Monthly Barchart Linechart Admin View**  
+  ![Screenshot](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG)
+- **Audit Logs**  
+  ![Screenshot](./screenshots/audit_logs.JPG)
+
+
 
 ---
 
