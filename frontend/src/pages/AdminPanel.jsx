@@ -46,6 +46,7 @@ function AdminPanel() {
 
     useEffect(() => {
         fetchAll();
+
     }, []);
 
     const updateStatus = async (id, status) => {
@@ -130,7 +131,7 @@ function AdminPanel() {
                                 <td>{new Date(e.date).toLocaleDateString()}</td>
                                 <td>₹{e.amount}</td>
                                 <td>{e.category}</td>
-                                <td>{e.status}</td>
+                                <td className={e.status}>{e.status}</td>
                                 <td>
                                     {['approved', 'rejected'].includes(e.status) ? (
                                         '-'
@@ -143,7 +144,7 @@ function AdminPanel() {
                                 </td>
                                 <td>
                                     {e.receipt ? (
-                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer">
+                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
                                             View
                                         </a>
                                     ) : '-'}
@@ -153,14 +154,16 @@ function AdminPanel() {
                     </tbody>
                 </table>
 
-                <h3>Audit Logs</h3>
-                <ul className="audit-log">
-                    {logs.map(log => (
-                        <li key={log._id}>
-                            [{new Date(log.timestamp).toLocaleString()}] {log.user?.email} → {log.action}
-                        </li>
-                    ))}
-                </ul>
+                <div className="audit-log-wrapper">
+                    <h3>Audit Logs</h3>
+                    <ul className="audit-log">
+                        {logs.map(log => (
+                            <li key={log._id}>
+                                [{new Date(log.timestamp).toLocaleString()}] {log.user?.email} → {log.action}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </>
     );

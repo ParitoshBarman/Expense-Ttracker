@@ -80,10 +80,10 @@ function Dashboard() {
                                 <td>{new Date(e.date).toLocaleDateString()}</td>
                                 <td>₹{e.amount}</td>
                                 <td>{e.category}</td>
-                                <td>{e.status}</td>
+                                <td className={e.status}>{e.status}</td>
                                 <td>
                                     {e.receipt ? (
-                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer">
+                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
                                             View
                                         </a>
                                     ) : '-'}
