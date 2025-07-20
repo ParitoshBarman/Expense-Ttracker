@@ -32,14 +32,15 @@ This is the backend for the Fullstack Expense Tracker app for remote teams. It p
 
 ```
 backend
+├── Expense Ttracker.postman_collection.json  // Postman collection file for testing backend all the API routes saved here
 ├── README.md
 ├── config
 │   └── db.js
 ├── controllers
 │   ├── analyticsController.js
-│   ├── auditLogController.js 
-│   ├── authController.js     
-│   └── expenseController.js  
+│   ├── auditLogController.js
+│   ├── authController.js
+│   └── expenseController.js
 ├── index.js
 ├── middlewares
 │   ├── authMiddleware.js
