@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from '../api/axios';
 import Navbar from '../components/Navbar';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Dashboard() {
     const [expenses, setExpenses] = useState([]);
