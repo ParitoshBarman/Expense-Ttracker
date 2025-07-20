@@ -18,12 +18,7 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-left">
                 <div className="navbar-brand">💸 Expense Tracker</div>
-                <button
-                    className="hamburger"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    ☰
-                </button>
+
             </div>
 
             {user && (
@@ -36,6 +31,14 @@ function Navbar() {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             )}
+            <div>
+                <button
+                    className="hamburger"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    ☰
+                </button>
+            </div>
         </nav>
     );
 }
