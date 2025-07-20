@@ -173,7 +173,7 @@ npm run dev
 ```
 
 ---
-
+<!-- 
 ## 📸 Screenshots
 
 | Login Page | Register Page |
@@ -194,8 +194,24 @@ npm run dev
 
 | Expense Insights (Admin) | Audit Logs (Admin) |
 |--------------------------|--------------------|
-| ![Charts](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG) | ![Audit Logs](./screenshots/audit_logs.JPG) |
+| ![Charts](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG) | ![Audit Logs](./screenshots/audit_logs.JPG) | -->
 
+## 📸 Screenshots
+
+| Page | Preview |
+|------|---------|
+| 🔐 Login Page | ![Login](./screenshots/login_page.png) |
+| 📝 Register Page | ![Register](./screenshots/register.png) |
+| 👤 Employee Navbar | ![Navbar (Emp)](./screenshots/navbar_emp_view.JPG) |
+| 🧑‍💼 Admin Navbar | ![Navbar (Admin)](./screenshots/navbar_admin_view.JPG) |
+| 💼 Employee Dashboard | ![Dashboard (Emp)](./screenshots/dashboard_emp_view.png) |
+| 📋 Employee Expense Table | ![Expense Table (Emp)](./screenshots/expense_table_emp_view.JPG) |
+| 📊 Admin - All Expenses Table | ![All Expenses](./screenshots/all_expenses_table_admin_view.JPG) |
+| 📤 Admin - CSV Export Button | ![CSV Export](./screenshots/export_csv_admin_view.JPG) |
+| 📈 Admin - Charts (Category + Monthly) | ![Charts](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG) |
+| 🧾 Admin - Audit Logs View | ![Audit Logs](./screenshots/audit_logs.JPG) |
+
+---
 
 
 ---
