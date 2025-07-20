@@ -36,7 +36,7 @@ A full-stack web application built for Pocketrocket Labs as part of the Fullstac
 
 ### 2. Expense Tracking
 - ✅ Employees can add/view expenses (amount, category, date, notes)
-- ✅ Admins can view, filter, and update expense status (`pending`, `approved`, `rejected`)
+- ✅ Admins can view, filter (by status/category), and update expense status (pending, approved, rejected)  
 
 ### 3. Charts & Insights (Admin-only)
 - ✅ Total expenses per category (Bar Chart)

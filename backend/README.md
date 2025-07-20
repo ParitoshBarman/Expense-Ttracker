@@ -10,6 +10,7 @@ This is the backend for the Fullstack Expense Tracker app for remote teams. It p
 - 🔐 JWT Authentication (Login/Register)
 - 👥 Role-based access control (Employee/Admin)
 - 📊 Expense tracking (with status management)
+- 📂 Expense filtering support (by status/category for admin)
 - 📈 Admin analytics with insights (category/month-wise)
 - 📝 Audit logs of key actions
 - 🧾 CSV export for reports
