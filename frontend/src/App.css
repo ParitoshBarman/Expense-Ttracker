@@ -221,6 +221,54 @@ table tr:hover {
   background: #218838;
 }
 
+
+.filters {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+.filters h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #333;
+}
+
+.filter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-grid input[type="text"],
+.filter-grid input[type="date"],
+.filter-grid select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 160px;
+}
+
+.filter-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #0056b3;
+}
+
+
 .admin-table {
   width: 100%;
   border-collapse: collapse;

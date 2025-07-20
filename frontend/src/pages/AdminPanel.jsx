@@ -99,6 +99,7 @@ function AdminPanel() {
         }
     };
 
+
     const barChartData = {
         labels: categoryData.map(item => item._id),
         datasets: [{
