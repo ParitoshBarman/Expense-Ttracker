@@ -31,14 +31,9 @@ function Navbar() {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             )}
-            <div>
-                <button
-                    className="hamburger"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    ☰
+                <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                      {menuOpen?"✖":"☰"}
                 </button>
-            </div>
         </nav>
     );
 }

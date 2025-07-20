@@ -199,6 +199,9 @@ table tr:hover {
   border: none;
   color: white;
   cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 4px;
 }
 
 
@@ -428,7 +431,7 @@ td.pending {
 ------------------------------ */
 
 /* Tablets & below */
-@media (max-width: 991px) {
+@media (max-width: 800px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -454,6 +457,13 @@ td.pending {
   .auth-container {
     margin: 40px auto;
     padding: 20px 15px;
+  }
+
+  .expense-table,
+  .admin-table {
+    font-size: 0.85rem;
+    display: block;
+    overflow-x: auto;
   }
 }
 
@@ -517,7 +527,7 @@ td.pending {
 
 
 /* Show hamburger and toggle menu on mobile */
-@media (max-width: 768px) {
+@media (max-width: 799px) {
   .hamburger {
     display: block;
   }
@@ -539,7 +549,7 @@ td.pending {
   .navbar-right span,
   .navbar-right button {
     padding: 5px 15px;
-    width: 100%;
+    /* width: 100%; */
     text-align: left;
   }
 
