@@ -176,29 +176,25 @@ npm run dev
 
 ## 📸 Screenshots
 
-### 🔐 Authentication Pages
-- **Login Page**  
-  ![Screenshot](./screenshots/login_page.png)
-- **Register**  
-  ![Screenshot](./screenshots/register.png)
+| Login Page | Register Page |
+|------------|----------------|
+| ![Login](./screenshots/login_page.png) | ![Register](./screenshots/register.png) |
 
-### 👤 Employee Views
-- **Navbar Emp View**  
-  ![Screenshot](./screenshots/navbar_emp_view.JPG)
-- **Dashboard Emp View**  
-  ![Screenshot](./screenshots/dashboard_emp_view.png)
-- **Expense Table Emp View**  
-  ![Screenshot](./screenshots/expense_table_emp_view.JPG)
+| Employee Navbar | Admin Navbar |
+|------------------|---------------|
+| ![Navbar (Emp)](./screenshots/navbar_emp_view.JPG) | ![Navbar (Admin)](./screenshots/navbar_admin_view.JPG) |
 
-### 🛠 Admin Views
-- **Navbar Admin View**  
-  ![Screenshot](./screenshots/navbar_admin_view.JPG)
-- **All Expenses Table Admin View**  
-  ![Screenshot](./screenshots/all_expenses_table_admin_view.JPG)
-- **Expense Catagory Monthly Barchart Linechart Admin View**  
-  ![Screenshot](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG)
-- **Audit Logs**  
-  ![Screenshot](./screenshots/audit_logs.JPG)
+| Employee Dashboard | Employee Expense Table |
+|--------------------|------------------------|
+| ![Dashboard (Emp)](./screenshots/dashboard_emp_view.png) | ![Expense Table (Emp)](./screenshots/expense_table_emp_view.JPG) |
+
+| Admin All Expenses Table | CSV Export Button |
+|---------------------------|------------------|
+| ![All Expenses (Admin)](./screenshots/all_expenses_table_admin_view.JPG) | ![CSV Export](./screenshots/export_csv_admin_view.JPG) |
+
+| Expense Insights (Admin) | Audit Logs (Admin) |
+|--------------------------|--------------------|
+| ![Charts](./screenshots/expense_catagory_monthly_barchart_linechart_admin_view.JPG) | ![Audit Logs](./screenshots/audit_logs.JPG) |
 
 
 
