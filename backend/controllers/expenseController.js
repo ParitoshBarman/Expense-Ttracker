@@ -63,18 +63,39 @@ exports.getMyExpenses = async (req, res) => {
 // Get all expenses (admin)
 exports.getAllExpenses = async (req, res) => {
     try {
-        const { status, category } = req.query;
+        const { status, category, userEmail, startDate, endDate } = req.query;
         const filter = {};
 
+        // Filter by status
         if (status) filter.status = status;
+
+        // Filter by category
         if (category) filter.category = category;
 
-        const expenses = await Expense.find(filter).populate('user', 'email role').sort({ date: -1 });
+        // Filter by date range
+        if (startDate || endDate) {
+            filter.date = {};
+            if (startDate) filter.date.$gte = new Date(startDate);
+            if (endDate) filter.date.$lte = new Date(endDate);
+        }
+
+        // Find all expenses and populate user
+        let expenses = await Expense.find(filter).populate('user', 'email role');
+
+        // If userEmail is provided, filter after population
+        if (userEmail) {
+            expenses = expenses.filter(exp => exp.user.email === userEmail);
+        }
+
+        // Sort by date descending
+        expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+
         res.json(expenses);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 };
+
 
 // Update expense status (admin only)
 exports.updateExpenseStatus = async (req, res) => {

@@ -34,13 +34,26 @@ function AdminPanel() {
     const [logs, setLogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const [filters, setFilters] = useState({
+        status: '',
+        category: '',
+        userEmail: '',
+        startDate: '',
+        endDate: ''
+    });
+
+    const handleFilterChange = (e) => {
+        setFilters({ ...filters, [e.target.name]: e.target.value });
+    };
+
     const fetchAll = async () => {
         setLoading(true);
         try {
+            const queryParams = new URLSearchParams(filters).toString();
             const [cat, month, allExpenses, audit] = await Promise.all([
                 axios.get('/analytics/category'),
                 axios.get('/analytics/monthly'),
-                axios.get('/expenses/all'),
+                axios.get(`/expenses/all?${queryParams}`),
                 axios.get('/audit')
             ]);
             setCategoryData(cat.data);
@@ -125,6 +138,46 @@ function AdminPanel() {
                 <button onClick={downloadCSV} className="export-btn">
                     📥 Export CSV
                 </button>
+
+                {/* Filters Section */}
+                <div className="filters">
+                    <h4>Filter Expenses</h4>
+                    <div className="filter-grid">
+                        <input
+                            type="text"
+                            name="userEmail"
+                            placeholder="User Email"
+                            value={filters.userEmail}
+                            onChange={handleFilterChange}
+                        />
+                        <select name="status" value={filters.status} onChange={handleFilterChange}>
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <input
+                            type="text"
+                            name="category"
+                            placeholder="Category"
+                            value={filters.category}
+                            onChange={handleFilterChange}
+                        />
+                        <input
+                            type="date"
+                            name="startDate"
+                            value={filters.startDate}
+                            onChange={handleFilterChange}
+                        />
+                        <input
+                            type="date"
+                            name="endDate"
+                            value={filters.endDate}
+                            onChange={handleFilterChange}
+                        />
+                        <button onClick={fetchAll} className="filter-btn">Apply Filter</button>
+                    </div>
+                </div>
 
                 <h3>All Expenses</h3>
                 <table className="admin-table">
