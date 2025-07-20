@@ -185,6 +185,24 @@ table tr:hover {
   font-weight: bold;
 }
 
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+
 /* for admin panel */
 .admin-panel {
   max-width: 1100px;
@@ -493,5 +511,41 @@ td.pending {
   .audit-log {
     font-size: 0.85rem;
     padding: 10px;
+  }
+}
+
+
+
+/* Show hamburger and toggle menu on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-right {
+    display: none;
+    flex-direction: column;
+    background-color: #007bff;
+    width: 100%;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .navbar-right.show {
+    display: flex;
+  }
+
+  .navbar-right a,
+  .navbar-right span,
+  .navbar-right button {
+    padding: 5px 15px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
