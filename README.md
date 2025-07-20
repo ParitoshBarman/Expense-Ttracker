@@ -215,6 +215,21 @@ npm run dev
 
 ---
 
+## 📱 Mobile View
+
+| 🏠 Home Page | 📋 All Expenses |
+|-------------|------------------|
+| ![Home](./screenshots/home_mobile_view.jpeg) | ![All Expenses](./screenshots/all_expenses_mobile_view.jpeg) |
+
+| 🔍 Filter Expenses | 📊 Charts |
+|-------------------|-----------|
+| ![Filter](./screenshots/filter_expenses_mobile_view.jpeg) | ![Charts](./screenshots/charts_admin_mobile_view.jpeg) |
+
+| 🧾 Audit Logs |  |
+|----------------|--|
+| ![Audit Logs](./screenshots/audit_logs_admin_mobile_view.jpeg) |  |
+
+
 
 ---
 
