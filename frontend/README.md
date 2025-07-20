@@ -11,11 +11,11 @@ This is the **Frontend** for the Fullstack Expense Tracker Web App. It is built 
 - 👥 **Role-based Access Control** (Admin / Employee)
 - 🧾 **Expense Management** (Add, View, Upload Receipt)
 - 📈 **Admin Panel** with:
-&nbsp;&nbsp;&nbsp;&nbsp;📊 Monthly and Category-wise Charts (Bar + Line)  
-&nbsp;&nbsp;&nbsp;&nbsp;✅ Status Approval (Approve/Reject Expenses)  
-&nbsp;&nbsp;&nbsp;&nbsp;🗂️ Filter Expenses by Status & Category  
-&nbsp;&nbsp;&nbsp;&nbsp;📜 Audit Logs  
-&nbsp;&nbsp;&nbsp;&nbsp;📥 CSV Export of All Expenses  
+  - 📊 Monthly and Category-wise Charts (Bar + Line)
+  - ✅ Status Approval (Approve/Reject Expenses)
+  - 🗂️ Filter Expenses by Status & Category  
+  - 📜 Audit Logs
+  - 📥 CSV Export of All Expenses
 - 🧠 **Global AuthContext** for user handling
 - 🔐 **RoleGuard & RoleBased** Component Protection
 - 🔄 Skeleton UI Loader for smooth UX

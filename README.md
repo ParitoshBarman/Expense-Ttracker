@@ -169,6 +169,7 @@ cd ../frontend
 npm install
 # Create a .env file with:
 # VITE_API_BASE_URL=https://expense-ttracker.onrender.com/api
+# VITE_BASE_URL=https://expense-ttracker.onrender.com
 npm run dev
 ```
 
