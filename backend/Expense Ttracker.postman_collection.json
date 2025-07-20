@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "581f4d76-d3fb-4f96-bee1-fc6f14fed484",
+		"name": "Expense Ttracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45125726",
+		"_collection_link": "https://paritoshbarman.postman.co/workspace/Paritosh-Barman's-Workspace~1b3d0376-1b76-44ef-8333-3df284a2a14b/collection/45125726-581f4d76-d3fb-4f96-bee1-fc6f14fed484?action=share&source=collection_link&creator=45125726"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pari@gmail.com\",\r\n  \"password\": \"123\",\r\n  \"role\": \"employee\" // or \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register (Admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pariadmin@gmail.com\",\r\n  \"password\": \"123\",\r\n  \"role\": \"admin\" // or \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pari@gmail.com\",\r\n  \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Expense (Employee)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4NmIwNDE0ZTkyOWNkNjBkMGUwMyIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTc1MjkyNjEyNCwiZXhwIjoxNzUzNTMwOTI0fQ.joSPTuVMp7L3FRZFTsmnDnkqc94NSW31JlhSoyRh9uY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 100,\r\n  \"category\": \"Hobbi\",\r\n  \"date\": \"2025-07-18\",\r\n  \"notes\": \"Plaing Football\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Expense With Receipt (Employee)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4NmIwNDE0ZTkyOWNkNjBkMGUwMyIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTc1MjkyNjEyNCwiZXhwIjoxNzUzNTMwOTI0fQ.joSPTuVMp7L3FRZFTsmnDnkqc94NSW31JlhSoyRh9uY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Food",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2025-07-18",
+							"type": "text"
+						},
+						{
+							"key": "notes",
+							"value": "I love to eat rice",
+							"type": "text"
+						},
+						{
+							"key": "receipt",
+							"type": "file",
+							"src": "/C:/Users/Paritosh Barman/Downloads/FullStack Engineer - Take Home Assignment.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses/with-receipt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses",
+						"with-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Own Expenses (Employee)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4NmIwNDE0ZTkyOWNkNjBkMGUwMyIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTc1MjkyNjEyNCwiZXhwIjoxNzUzNTMwOTI0fQ.joSPTuVMp7L3FRZFTsmnDnkqc94NSW31JlhSoyRh9uY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Expenses (Admin)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses/all?status=pending&category=Travel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses",
+						"all"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "pending"
+						},
+						{
+							"key": "category",
+							"value": "Travel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Status (Admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"approved\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses/687b88b5414e929cd60d0e09/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses",
+						"687b88b5414e929cd60d0e09",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin View Audit Logs (Admin)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/audit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"audit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics category (Admin)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/analytics/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"analytics",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics monthly (Admin)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/analytics/monthly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"analytics",
+						"monthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expenses export to csv (Admin)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I4YTljOGE3Y2M2MTY3MThlOWI1YiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MjkyNjg3NiwiZXhwIjoxNzUzNTMxNjc2fQ.uy0KcE-VWdeiHEX-PxlzDNjPskiCl018N1mksZ3hddE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/expenses/export/csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"expenses",
+						"export",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

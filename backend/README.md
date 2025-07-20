@@ -110,3 +110,32 @@ npm run start
 - `GET /api/analytics/monthly` (Admin)
 
 ---
+
+
+
+---
+
+## 📬 Postman Collection
+
+To test all available API routes easily, a Postman collection is included.
+
+- **File Name:** `Expense Ttracker.postman_collection.json`
+- **Location:** Root of the backend directory
+
+### 📥 How to Use
+
+1. Open [Postman](https://www.postman.com/downloads/)
+2. Go to **File > Import**
+3. Select `Expense Ttracker.postman_collection.json` from the backend folder
+4. Use the saved requests to test all routes including:
+   - 🔐 Authentication
+   - 📤 File uploads
+   - 📊 Analytics
+   - ✅ Status updates
+   - 📁 CSV export
+
+> ⚠️ Ensure the server is running and the `.env` is configured before testing.
+
+📎 [Click to Download Expense Ttracker.postman_collection.json](./Expense%20Ttracker.postman_collection.json)
+
+---
