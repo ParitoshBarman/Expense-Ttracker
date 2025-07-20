@@ -124,7 +124,7 @@ To test all available API routes easily, a Postman collection is included.
 
 ### 📥 How to Use
 
-1. Open [Postman](https://www.postman.com/downloads/)
+1. Open **Postman**
 2. Go to **File > Import**
 3. Select `Expense Ttracker.postman_collection.json` from the backend folder
 4. Use the saved requests to test all routes including:
