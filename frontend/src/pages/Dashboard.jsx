@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from '../api/axios';
 import Navbar from '../components/Navbar';
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function Dashboard() {
     const [expenses, setExpenses] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [form, setForm] = useState({
         amount: '',
         category: '',
@@ -13,11 +16,14 @@ function Dashboard() {
     const [file, setFile] = useState(null);
 
     const fetchExpenses = async () => {
+        setLoading(true);
         try {
             const res = await axios.get('/expenses/my');
             setExpenses(res.data);
         } catch (err) {
             alert('Failed to load expenses');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -75,21 +81,36 @@ function Dashboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {expenses.map((e) => (
-                            <tr key={e._id}>
-                                <td>{new Date(e.date).toLocaleDateString()}</td>
-                                <td>₹{e.amount}</td>
-                                <td>{e.category}</td>
-                                <td className={e.status}>{e.status}</td>
-                                <td>
-                                    {e.receipt ? (
-                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
-                                            View
-                                        </a>
-                                    ) : '-'}
-                                </td>
-                            </tr>
-                        ))}
+                        {loading ? (
+                            [...Array(3)].map((_, i) => (
+                                <tr key={i}>
+                                    <td colSpan={5}>
+                                        <div style={{
+                                            background: '#eee',
+                                            height: '20px',
+                                            borderRadius: '4px',
+                                            animation: 'pulse 1.5s infinite'
+                                        }} />
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            expenses.map((e) => (
+                                <tr key={e._id}>
+                                    <td>{new Date(e.date).toLocaleDateString()}</td>
+                                    <td>₹{e.amount}</td>
+                                    <td>{e.category}</td>
+                                    <td className={e.status}>{e.status}</td>
+                                    <td>
+                                        {e.receipt ? (
+                                            <a href={`${BASE_URL}/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
+                                                View
+                                            </a>
+                                        ) : '-'}
+                                    </td>
+                                </tr>
+                            ))
+                        )}
                     </tbody>
                 </table>
             </div>

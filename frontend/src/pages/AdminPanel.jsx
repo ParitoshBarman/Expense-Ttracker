@@ -14,6 +14,8 @@ import {
 } from 'chart.js';
 import Navbar from '../components/Navbar';
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 ChartJS.register(
     BarElement,
     LineElement,
@@ -30,23 +32,30 @@ function AdminPanel() {
     const [monthlyData, setMonthlyData] = useState([]);
     const [expenses, setExpenses] = useState([]);
     const [logs, setLogs] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchAll = async () => {
-        const [cat, month, allExpenses, audit] = await Promise.all([
-            axios.get('/analytics/category'),
-            axios.get('/analytics/monthly'),
-            axios.get('/expenses/all'),
-            axios.get('/audit')
-        ]);
-        setCategoryData(cat.data);
-        setMonthlyData(month.data);
-        setExpenses(allExpenses.data);
-        setLogs(audit.data);
+        setLoading(true);
+        try {
+            const [cat, month, allExpenses, audit] = await Promise.all([
+                axios.get('/analytics/category'),
+                axios.get('/analytics/monthly'),
+                axios.get('/expenses/all'),
+                axios.get('/audit')
+            ]);
+            setCategoryData(cat.data);
+            setMonthlyData(month.data);
+            setExpenses(allExpenses.data);
+            setLogs(audit.data);
+        } catch (err) {
+            alert('Failed to load admin data');
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
         fetchAll();
-
     }, []);
 
     const updateStatus = async (id, status) => {
@@ -103,8 +112,14 @@ function AdminPanel() {
                 <h2>Admin Panel</h2>
 
                 <div className="charts-container">
-                    <Bar data={barChartData} />
-                    <Line data={lineChartData} className="mt-6" />
+                    {loading ? (
+                        <div style={{ height: '300px', background: '#eee', borderRadius: '10px', animation: 'pulse 1.5s infinite' }} />
+                    ) : (
+                        <>
+                            <Bar data={barChartData} />
+                            <Line data={lineChartData} className="mt-6" />
+                        </>
+                    )}
                 </div>
 
                 <button onClick={downloadCSV} className="export-btn">
@@ -125,43 +140,72 @@ function AdminPanel() {
                         </tr>
                     </thead>
                     <tbody>
-                        {expenses.map(e => (
-                            <tr key={e._id}>
-                                <td>{e.user?.email}</td>
-                                <td>{new Date(e.date).toLocaleDateString()}</td>
-                                <td>₹{e.amount}</td>
-                                <td>{e.category}</td>
-                                <td className={e.status}>{e.status}</td>
-                                <td>
-                                    {['approved', 'rejected'].includes(e.status) ? (
-                                        '-'
-                                    ) : (
-                                        <>
-                                            <button onClick={() => updateStatus(e._id, 'approved')} className='approve-btn'>Approve</button>{' '}
-                                            <button onClick={() => updateStatus(e._id, 'rejected')} className='reject-btn'>Reject</button>
-                                        </>
-                                    )}
-                                </td>
-                                <td>
-                                    {e.receipt ? (
-                                        <a href={`http://localhost:5000/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
-                                            View
-                                        </a>
-                                    ) : '-'}
-                                </td>
-                            </tr>
-                        ))}
+                        {loading ? (
+                            [...Array(3)].map((_, i) => (
+                                <tr key={i}>
+                                    <td colSpan={7}>
+                                        <div style={{
+                                            background: '#eee',
+                                            height: '20px',
+                                            borderRadius: '4px',
+                                            animation: 'pulse 1.5s infinite'
+                                        }} />
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            expenses.map(e => (
+                                <tr key={e._id}>
+                                    <td>{e.user?.email}</td>
+                                    <td>{new Date(e.date).toLocaleDateString()}</td>
+                                    <td>₹{e.amount}</td>
+                                    <td>{e.category}</td>
+                                    <td className={e.status}>{e.status}</td>
+                                    <td>
+                                        {['approved', 'rejected'].includes(e.status) ? (
+                                            '-'
+                                        ) : (
+                                            <>
+                                                <button onClick={() => updateStatus(e._id, 'approved')} className='approve-btn'>Approve</button>{' '}
+                                                <button onClick={() => updateStatus(e._id, 'rejected')} className='reject-btn'>Reject</button>
+                                            </>
+                                        )}
+                                    </td>
+                                    <td>
+                                        {e.receipt ? (
+                                            <a href={`${BASE_URL}/${e.receipt}`} target="_blank" rel="noopener noreferrer" className="view-btn">
+                                                View
+                                            </a>
+                                        ) : '-'}
+                                    </td>
+                                </tr>
+                            ))
+                        )}
                     </tbody>
                 </table>
 
                 <div className="audit-log-wrapper">
                     <h3>Audit Logs</h3>
                     <ul className="audit-log">
-                        {logs.map(log => (
-                            <li key={log._id}>
-                                [{new Date(log.timestamp).toLocaleString()}] {log.user?.email} → {log.action}
-                            </li>
-                        ))}
+                        {loading ? (
+                            [...Array(4)].map((_, i) => (
+                                <li key={i}>
+                                    <div style={{
+                                        background: '#ddd',
+                                        height: '14px',
+                                        width: '100%',
+                                        borderRadius: '4px',
+                                        animation: 'pulse 1.5s infinite'
+                                    }} />
+                                </li>
+                            ))
+                        ) : (
+                            logs.map(log => (
+                                <li key={log._id}>
+                                    [{new Date(log.timestamp).toLocaleString()}] {log.user?.email} → {log.action}
+                                </li>
+                            ))
+                        )}
                     </ul>
                 </div>
             </div>
