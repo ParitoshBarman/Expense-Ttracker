@@ -26,13 +26,14 @@ This is the **Frontend** for the Fullstack Expense Tracker Web App. It is built 
 
 ```
 frontend
-├── README.md        
-├── eslint.config.js 
-├── index.html       
+├── README.md
+├── eslint.config.js
+├── index.html
 ├── package-lock.json
-├── package.json     
+├── package.json
 ├── public
-│   └── vite.svg     
+│   ├── _redirects
+│   └── vite.svg
 ├── src
 │   ├── App.css
 │   ├── App.jsx
