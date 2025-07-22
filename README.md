@@ -54,6 +54,47 @@ A full-stack web application built for Pocketrocket Labs as part of the Fullstac
 
 ---
 
+
+---
+
+## 🧠 Architecture Notes
+
+This project follows a **classic MERN-style separation** with a clean MVC backend and a lightweight React client that consumes REST APIs.
+
+### High-Level Flow
+```text
+[React Frontend]  --Axios-->  [/api/* Express Routes]  --Controllers-->  [Mongoose Models]  --> [MongoDB]
+      ↑                                                           |
+      └── LocalStorage token (JWT) <---- Auth Login Response -----┘
+```
+
+### Backend Design Highlights
+- **JWT Authentication** with role-based access.
+- **Expense CRUD & Status**: linked to user roles.
+- **Audit Logging** to maintain trace of critical events.
+- **Analytics** via Mongoose aggregation for monthly & category breakdown.
+- **CSV Export** via `json2csv` and **file uploads** via Multer.
+
+### Frontend Design Highlights
+- Role-guarded routing using React Context + RoleGuard components.
+- Responsive design + skeleton loading states.
+- Chart.js for data visualization.
+
+---
+
+## ⚖️ Design Trade-offs
+
+| Area | Current | Trade-off | Future |
+|------|---------|-----------|--------|
+| JWT in localStorage | Easy setup | XSS vulnerability | Switch to httpOnly cookies |
+| MongoDB | Flexible | Weak relationships | Add data validation |
+| File upload (local) | Simple | Not cloud-scalable | Use S3 or similar |
+| No pagination | Simpler UI | Bad for large data | Add server-side pagination |
+| Render + Netlify | Free | Slow cold starts | Use container-based infra |
+
+---
+
+
 ## 🛠 Tech Stack
 
 ### Backend
